@@ -22,6 +22,7 @@ define([
     var instantiator = variant === 'pseudoclassical' ? Stack : Stack;
     var prototypeOfInstances = variant === 'prototypal' && stackMethods;
 
+    
     beforeEach(function(){
       if(variant === 'pseudoclassical'){
         stack = new instantiator();
@@ -64,7 +65,7 @@ define([
 
       it('allows sequentially additing and removing items', function() {
         stack.push('a');
-        expect(stack.pop()).to.equal('a');
+        expect(stack.pop()).to.equal('a'); 
         stack.push('b');
         expect(stack.pop()).to.equal('b');
       });
