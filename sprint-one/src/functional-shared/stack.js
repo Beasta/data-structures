@@ -1,28 +1,27 @@
 var Stack = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
-  // but try not not reference your old code in writing the new style.
-  var obj = {};
-  obj.size = stackMethods.size;
-  obj.push = stackMethods.push;
-  obj.pop = stackMethods.pop;
+    // but try not not reference your old code in writing the new style.
+var obj = {
+  storage: {}
+  };
 
-  _.extend(obj,stackMethods);
+  _.extend(obj, stackMethods);
+
   return obj;
 };
 
+var stackMethods = {
+  push: function(value){
+    this.storage[this.size()] = value;
+  },
 
-var stackMethods = {};
-stackMethods.size = function(){
-  var thing = this;
-  return _.size(thing)-3;
-};
-stackMethods.push = function(value){
-    for (var i = 0; i < arguments.length; i++) {
-       this[stackMethods.size(this)+1] = arguments[i];
-    };
-  };
-stackMethods.pop = function(){
-    var popped = this[stackMethods.size()];
-    delete this[stackMethods.size()]
+  pop: function(){
+    var popped = this.storage[this.size()-1];
+    delete this.storage[this.size()-1];
     return popped;
-  };
+  },
+
+  size: function(){
+    return (_.size(this.storage));
+  }
+};

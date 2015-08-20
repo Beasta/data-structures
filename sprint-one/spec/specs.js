@@ -17,7 +17,7 @@ define([
   var expect = chai.expect;
 
   describe("stack", function() {
-
+    
     var stack;
     var instantiator = variant === 'pseudoclassical' ? Stack : Stack;
     var prototypeOfInstances = variant === 'prototypal' && stackMethods;
