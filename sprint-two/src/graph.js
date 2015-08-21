@@ -52,11 +52,19 @@ Graph.prototype.removeEdge = function(fromNode, toNode){
       this.newGraph[fromNode][i] = null;
     }
   };
+  for (var i = 0; i < this.newGraph[toNode].length; i++) {
+    if(this.newGraph[toNode][i]===fromNode){
+      this.newGraph[toNode][i] = null;
+    }
+  };
 };
 
 // ------------------------
 // Pass in a callback which will be executed on each node of the graph.
 Graph.prototype.forEachNode = function(cb){
+  for(var key in this.newGraph){
+    cb(key);
+  }
 };
 
 /*
