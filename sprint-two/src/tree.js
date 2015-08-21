@@ -18,20 +18,21 @@ var Tree = function(value){
 var treeMethods = {};
 
 treeMethods.addChild = function(value){
-  
-
-  if(this.top === null){
-    newTree[value] = value;
-    this.top 
-  }
+  this.children.push(Tree(value));
 
 };
 
 treeMethods.contains = function(target){
-
+  if(this.value == target){
+    return true;
+  }
+  for(var i=0; i<this.children.length;i++){
+    if(this.children[i].contains(target)){ //RECURSION
+      return true;
+    }
+  }
+  return false;
 };
-
-
 
 
 /*
