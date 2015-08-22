@@ -3,34 +3,16 @@ var HashTable = function(){
   this._storage = LimitedArray(this._limit);
 };
 
-HashTable.prototype.insert = function(k, v){
+HashTable.prototype.insert = function(k, v){ //key parameter, value parameter
   var i = getIndexBelowMaxForKey(k, this._limit);
-  var thisRetrieval = this.retrieve(k);
-  if(!thisRetrieval){
-    this._storage.set(i,[]);
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  thisRetrieval.push(this._storage.set(i,v));
-  this._storage.set(i,thisRetrieval);
+  this._storage.set(i,v);
+  
 };
 
-HashTable.prototype.retrieve = function(k){
+HashTable.prototype.retrieve = function(k){  //key parameter, returns value
   var i = getIndexBelowMaxForKey(k, this._limit);
-  /*return*/ var bucket = this._storage.get(i);
-  for (var i = 0; i < buck
+  return this._storage.get(i);
+};
 
 
 
